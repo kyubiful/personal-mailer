@@ -14,10 +14,10 @@ router.post('/send', (req, res) => {
       sendMail(message)
       res.status(500).json({ msg: 'Email send success' })
     } catch (e: any) {
-      res.status(400).json({ msg: e.message })
+      res.status(400).json({ status: 400, msg: e.message })
     }
   } catch (e: any) {
-    res.status(400).json({ msg: e.message })
+    res.status(400).json({ status: 400, msg: e.message })
   }
 })
 
