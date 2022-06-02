@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc",
     "start": "node build/index.js",
+    "build": "tsc",
     "dev": "ts-node-dev --no-notify src/",
     "cm": "cz"
   },
