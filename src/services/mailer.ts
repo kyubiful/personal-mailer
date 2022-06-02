@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import nodemailer from 'nodemailer'
 import { Mail, TransportOptions, UserMail } from '../types'
-import { isString } from '../utils/verifyData'
+import { isString, isEmptyString } from '../utils/verifyData'
 
 const transport: TransportOptions = {
   host: process.env.MAIL_HOST ?? '',
@@ -53,6 +53,10 @@ const verifyTextInput = (input: any): boolean => {
     console.log('Error: Incorrect or missing text')
     throw new Error('Incorrect or missing text')
   }
+  if (!isEmptyString(input)) {
+    console.log('Error: missing text')
+    throw new Error('Missing text')
+  }
   return true
 }
 
@@ -60,7 +64,10 @@ const verifyEmailInput = (input: any): boolean => {
   if (!isString(input)) {
     console.log('Error: Incorrect or missing email')
     throw new Error('Incorrect or missing email')
-
+  }
+  if (!isEmptyString(input)) {
+    console.log('Error: missing email')
+    throw new Error('Missing email')
   }
   return true
 }
@@ -70,6 +77,10 @@ const verifyNameInput = (input: any): boolean => {
     console.log('Error: Incorrect or missing name')
     throw new Error('Incorrect or missing name')
   }
+  if (!isEmptyString(input)) {
+    console.log('Error: missing name')
+    throw new Error('Missing name')
+  }
   return true
 }
 
@@ -78,6 +89,10 @@ const verifySubjectInput = (input: any): boolean => {
     console.log('Error: Subject error')
     throw new Error('Subject error')
   }
+  if (!isEmptyString(input)) {
+    console.log('Error: missing subject')
+    throw new Error('Missing subject')
+  }
   return true
 }
 
@@ -85,6 +100,10 @@ const verifyToInput = (input: any): boolean => {
   if (!isString(input)) {
     console.log('Error: to error')
     throw new Error('to error')
+  }
+  if (!isEmptyString(input)) {
+    console.log('Error: missing to')
+    throw new Error('Missing to')
   }
   return true
 }
