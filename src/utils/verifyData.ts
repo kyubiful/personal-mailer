@@ -11,3 +11,10 @@ export const isNumber = (data: any): boolean => {
   }
   return false
 }
+
+export const isEmptyString = (data: any): boolean => {
+  if ((typeof data === 'string' || data instanceof String) && data.length !== 0) {
+    return true
+  }
+  return false
+}
