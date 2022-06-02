@@ -12,7 +12,7 @@ router.post('/send', (req, res) => {
     verifyUserMailData(message)
     try {
       sendMail(message)
-      res.status(500).json({ msg: 'Email send success' })
+      res.status(200).json({ status: 200, msg: 'Email send success' })
     } catch (e: any) {
       res.status(400).json({ status: 400, msg: e.message })
     }
