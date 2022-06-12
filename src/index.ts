@@ -14,6 +14,8 @@ app.get('/ping', (_req, res) => {
 
 app.use('/api/mail', mailRouter)
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Servidor iniciado en el puerto ${PORT}`)
 })
+
+export { app, server }
