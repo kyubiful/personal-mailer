@@ -17,4 +17,5 @@ export interface TransportOptions {
 export interface UserMail extends Omit<Mail, 'html'> {
   name: string
   text: string
+  lng: string
 }

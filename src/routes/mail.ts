@@ -12,7 +12,11 @@ router.post('/send', (req, res) => {
     verifyUserMailData(message)
     try {
       sendMail(message)
-      res.status(200).json({ status: 200, msg: 'Email send success' })
+      if (message.lng === 'es' || message.lng === '' || message.lng === null) {
+        res.status(200).json({ status: 200, msg: 'Email enviado correctamente' })
+      } else {
+        res.status(200).json({ status: 200, msg: 'Email send success' })
+      }
     } catch (e: any) {
       res.status(400).json({ status: 400, msg: e.message })
     }
